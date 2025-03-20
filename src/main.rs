@@ -1,3 +1,8 @@
+use clap::Parser;
+use jiffy2toggl::Cli;
+
+
 fn main() {
-    println!("Hello, world!");
+    env_logger::init();
+    Cli::parse().exec().unwrap();
 }
