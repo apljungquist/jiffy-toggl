@@ -114,8 +114,8 @@ pub struct Cli {
     #[arg(short, long)]
     skip: Option<usize>,
     /// Max number of rows to produc
-    #[arg(short, long)]
-    take: Option<usize>,
+    #[arg(short, long, default_value = "5000")]
+    take: usize,
 }
 
 impl Cli {
@@ -168,7 +168,7 @@ impl Cli {
                 })
             })
             .skip(self.skip.unwrap_or(0))
-            .take(self.take.unwrap_or(usize::MAX));
+            .take(self.take);
 
         let mut wtr = Writer::from_writer(vec![]);
         for row in rows {
