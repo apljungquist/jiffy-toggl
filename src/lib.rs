@@ -174,7 +174,7 @@ impl Cli {
         for row in rows {
             wtr.serialize(row).unwrap();
         }
-        println!("{}", String::from_utf8(wtr.into_inner().unwrap()).unwrap());
+        print!("{}", String::from_utf8(wtr.into_inner().unwrap()).unwrap());
         Ok(())
     }
 }
